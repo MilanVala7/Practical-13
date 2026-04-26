@@ -1,0 +1,123 @@
+## =========================
+## Visual Studio
+## =========================
+
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build results
+bin/
+obj/
+Debug/
+Release/
+x64/
+x86/
+[Bb]uild/
+[Ll]og/
+
+## =========================
+## ASP.NET / MVC / Web API
+## =========================
+
+# IIS Express
+.vs/config/
+*.pfx
+
+# Published output
+publish/
+*.Publish.xml
+
+# Web Deploy
+*.deploy.cmd
+*.deploy-readme.txt
+
+## =========================
+## Entity Framework
+## =========================
+
+# Migration snapshots (optional keep if needed)
+# Migrations/
+
+# Local DB files
+*.mdf
+*.ldf
+
+## =========================
+## Logs
+## =========================
+
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+## =========================
+## Node (if used for frontend)
+## =========================
+
+node_modules/
+dist/
+build/
+
+## =========================
+## Packages
+## =========================
+
+packages/
+*.nupkg
+
+# Keep packages.config
+!packages.config
+
+## =========================
+## Rider / VS Code
+## =========================
+
+.idea/
+.vscode/
+
+## =========================
+## OS Files
+## =========================
+
+.DS_Store
+Thumbs.db
+
+## =========================
+## Resharper
+## =========================
+
+_ReSharper*/
+*.DotSettings.user
+
+## =========================
+## Temporary Files
+## =========================
+
+*.tmp
+*.temp
+*.cache
+
+## =========================
+## SQL Server
+## =========================
+
+*.bak
+*.trn
+
+## =========================
+## Test Results
+## =========================
+
+TestResults/
+
+## =========================
+## Misc
+## =========================
+
+*.swp
+*.lock.json

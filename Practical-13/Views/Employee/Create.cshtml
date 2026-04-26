@@ -1,0 +1,31 @@
+﻿@model Practical_13.Models.Entities.Employee
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Employee</h2>
+@Html.AntiForgeryToken()
+
+@using (Html.BeginForm("Create", "Employee", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <p>Name: @Html.TextBoxFor(m => m.Name)</p>
+    @Html.ValidationMessageFor(m => m.Name)
+
+    <p>DOB: @Html.TextBoxFor(m => m.DOB, "{0:yyyy-MM-dd}", new { type = "date" })</p>
+    @Html.ValidationMessageFor(m => m.DOB)
+
+    <p>Age: @Html.TextBoxFor(m => m.Age)</p>
+
+    <input type="submit" value="Save" />
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
