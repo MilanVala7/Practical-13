@@ -12,7 +12,7 @@ namespace Practical_13.Controllers
 
         public ActionResult Index()
         {
-            return View(repo.GetAll());
+            return View(repo.GetAllEmployees());
         }
 
         public ActionResult Details(int? id)
@@ -20,7 +20,7 @@ namespace Practical_13.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var emp = repo.GetById(id.Value);
+            var emp = repo.GetEmployeeById(id.Value);
 
             if (emp == null)
                 return HttpNotFound();
@@ -30,7 +30,7 @@ namespace Practical_13.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.DesignationId = new SelectList(dRepo.GetAll(), "Id", "DesignationName");
+            ViewBag.DesignationId = new SelectList(dRepo.GetAllDesignations(), "Id", "DesignationName");
             return View();
         }
 
@@ -45,7 +45,7 @@ namespace Practical_13.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DesignationId = new SelectList(dRepo.GetAll(), "Id", "DesignationName", emp.DesignationId);
+            ViewBag.DesignationId = new SelectList(dRepo.GetAllDesignations(), "Id", "DesignationName", emp.DesignationId);
             return View(emp);
         }
 
@@ -54,12 +54,12 @@ namespace Practical_13.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var emp = repo.GetById(id.Value);
+            var emp = repo.GetEmployeeById(id.Value);
 
             if (emp == null)
                 return HttpNotFound();
 
-            ViewBag.DesignationId = new SelectList(dRepo.GetAll(), "Id", "DesignationName", emp.DesignationId);
+            ViewBag.DesignationId = new SelectList(dRepo.GetAllDesignations(), "Id", "DesignationName", emp.DesignationId);
             return View(emp);
         }
 
@@ -74,7 +74,7 @@ namespace Practical_13.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DesignationId = new SelectList(dRepo.GetAll(), "Id", "DesignationName", emp.DesignationId);
+            ViewBag.DesignationId = new SelectList(dRepo.GetAllDesignations(), "Id", "DesignationName", emp.DesignationId);
             return View(emp);
         }
 
@@ -83,7 +83,7 @@ namespace Practical_13.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var emp = repo.GetById(id.Value);
+            var emp = repo.GetEmployeeById(id.Value);
 
             if (emp == null)
                 return HttpNotFound();

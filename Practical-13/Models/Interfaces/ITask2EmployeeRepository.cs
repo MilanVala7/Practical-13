@@ -6,8 +6,8 @@ namespace Practical_13.Models.Interfaces
 {
     public interface ITask2EmployeeRepository
     {
-        IEnumerable<Task2Employee> GetAll();
-        Task2Employee GetById(int id);
+        IEnumerable<Task2Employee> GetAllEmployees();
+        Task2Employee GetEmployeeById(int id);
         void Insert(Task2Employee emp);
         void Update(Task2Employee emp);
         void Delete(int id);

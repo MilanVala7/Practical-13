@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Practical_13.Models.Data;
 using Practical_13.Models.Entities;
 using Practical_13.Models.Interfaces;
-using System.Data.Entity;
 
 namespace Practical_13.Models.Services
 {
@@ -11,12 +11,12 @@ namespace Practical_13.Models.Services
     {
         private readonly AppDbContext db = new AppDbContext();
 
-        public IEnumerable<Employee> GetAll()
+        public IEnumerable<Employee> GetAllEmployees()
         {
             return db.Employees.ToList();
         }
 
-        public Employee GetById(int? id)
+        public Employee GetEmployeeById(int? id)
         {
             return db.Employees.Find(id);
         }

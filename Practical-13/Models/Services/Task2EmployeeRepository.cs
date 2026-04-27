@@ -12,12 +12,12 @@ namespace Practical_13.Models.Services
     {
         private AppDbContext db = new AppDbContext();
 
-        public IEnumerable<Task2Employee> GetAll()
+        public IEnumerable<Task2Employee> GetAllEmployees()
         {
             return db.Task2Employees.Include(e => e.Designation).ToList();
         }
 
-        public Task2Employee GetById(int id)
+        public Task2Employee GetEmployeeById(int id)
         {
             return db.Task2Employees.Find(id);
         }

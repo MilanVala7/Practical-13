@@ -12,7 +12,7 @@ namespace Practical_13.Controllers
         // GET: Employee
         public ActionResult Index()
         {
-            return View(repo.GetAll());
+            return View(repo.GetAllEmployees());
         }
 
         // GET: Employee/Details/5
@@ -22,7 +22,7 @@ namespace Practical_13.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee emp = repo.GetById(id);
+            Employee emp = repo.GetEmployeeById(id);
             if (emp == null)
             {
                 return HttpNotFound();
@@ -54,7 +54,7 @@ namespace Practical_13.Controllers
         // GET: Employee/Edit/5
         public ActionResult Edit(int id)
         {
-            var emp = repo.GetById(id);
+            var emp = repo.GetEmployeeById(id);
             if(emp == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace Practical_13.Controllers
         // GET: Employee/Delete/5
         public ActionResult Delete(int id)
         {
-            var emp = repo.GetById(id);
+            var emp = repo.GetEmployeeById(id);
             if (emp == null)
             {
                 return HttpNotFound();

@@ -5,8 +5,8 @@ namespace Practical_13.Models.Interfaces
 {
     public interface IDesignationRepository
     {
-        IEnumerable<Designation> GetAll();
-        Designation GetById(int id);
+        IEnumerable<Designation> GetAllDesignations();
+        Designation GetDesignationById(int id);
         void Insert(Designation d);
         void Update(Designation d);
         void Delete(int id);

@@ -1,5 +1,6 @@
 ﻿using Practical_13.Models.Entities;
 using Practical_13.Models.Services;
+using System;
 using System.Net;
 using System.Web.Mvc;
 
@@ -7,11 +8,11 @@ namespace Practical_13.Controllers
 {
     public class DesignationController : Controller
     {
-        private DesignationRepository repo = new DesignationRepository();
+        private readonly DesignationRepository repo = new DesignationRepository();
 
         public ActionResult Index()
         {
-            return View(repo.GetAll());
+            return View(repo.GetAllDesignations());
         }
 
         public ActionResult Details(int? id)
@@ -19,7 +20,7 @@ namespace Practical_13.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var d = repo.GetById(id.Value);
+            var d = repo.GetDesignationById(id.Value);
 
             if (d == null)
                 return HttpNotFound();
@@ -50,7 +51,7 @@ namespace Practical_13.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var d = repo.GetById(id.Value);
+            var d = repo.GetDesignationById(id.Value);
 
             if (d == null)
                 return HttpNotFound();
@@ -76,7 +77,7 @@ namespace Practical_13.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            var d = repo.GetById(id.Value);
+            var d = repo.GetDesignationById(id.Value);
 
             if (d == null)
                 return HttpNotFound();
@@ -88,9 +89,17 @@ namespace Practical_13.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            repo.Delete(id);
-            repo.Save();
-            return RedirectToAction("Index");
+            try
+            {
+                repo.Delete(id);
+                repo.Save();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                TempData["Error"] = "Cannot delete this designation because employees are assigned to it.";
+                return RedirectToAction("Index");
+            }
         }
     }
 }

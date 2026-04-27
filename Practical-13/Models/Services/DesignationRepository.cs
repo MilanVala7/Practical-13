@@ -2,8 +2,8 @@
 using Practical_13.Models.Entities;
 using Practical_13.Models.Interfaces;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
+using System.Data.Entity;
 
 namespace Practical_13.Models.Services
 {
@@ -11,12 +11,12 @@ namespace Practical_13.Models.Services
     {
         private AppDbContext db = new AppDbContext();
 
-        public IEnumerable<Designation> GetAll()
+        public IEnumerable<Designation> GetAllDesignations()
         {
             return db.Designations.ToList();
         }
 
-        public Designation GetById(int id)
+        public Designation GetDesignationById(int id)
         {
             return db.Designations.Find(id);
         }
